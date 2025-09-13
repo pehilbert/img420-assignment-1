@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdg5hb61svami"]
+
+[ext_resource type="Texture2D" uid="uid://cnqna20kbcvqa" path="res://textures/black.png" id="1_mi635"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mi635"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(4.17148, 0.898544)
+
+[node name="Platform" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_mi635")
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.69684e-06, -1.2517e-06)
+rotation = -3.14159
+scale = Vector2(97.807, -89.0329)
+shape = SubResource("RectangleShape2D_s8bxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.0400011)
+texture = ExtResource("1_mi635")
