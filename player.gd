@@ -1,7 +1,9 @@
 extends RigidBody2D
 
-@export var speed = 800
-@export var jump_power = 500
+@export var speed = 500
+@export var jump_power = 800
+var coins = 0
+
 var ray: RayCast2D
 
 # Called when the node enters the scene tree for the first time.
@@ -27,3 +29,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and ray.is_colliding():
 		apply_impulse(Vector2.UP * jump_power)
+
+func get_coins():
+	return coins
+	
+func add_coins(amount: int):
+	coins += amount
+	print(coins)
