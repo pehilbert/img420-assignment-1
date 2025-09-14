@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chuiudfbl2sbh"]
+
+[ext_resource type="Texture2D" uid="uid://c3f15oswxqkh0" path="res://textures/spikes.png" id="1_3m46y"]
+[ext_resource type="Script" uid="uid://cnygab80wm1t8" path="res://damage_object.gd" id="1_bmtuk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmtuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3m46y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m46y"]
+size = Vector2(3.94812, 8.02871)
+
+[node name="DamageObject" type="Area2D"]
+script = ExtResource("1_bmtuk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_bmtuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.40071e-06, 0.500001)
+scale = Vector2(24.822, -6.3522)
+shape = SubResource("RectangleShape2D_3m46y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

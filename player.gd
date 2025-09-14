@@ -2,12 +2,20 @@ extends RigidBody2D
 
 @export var speed = 500
 @export var jump_power = 800
+@export var starting_health = 3
 
 signal coins_changed(amount: int, player: Node2D)
 signal score_changed(amount: int, player: Node2D)
+signal health_changed(health: int, max_health: int, player: Node2D)
+signal damaged(amount: int, player: Node2D)
+signal healed(amount: int, player: Node2D)
+signal death(player: Node2D)
 
-var coins = 0
-var score = 0
+var coins: int
+var score: int
+var health: int
+var max_health: int
+var invincible: bool
 
 var ray: RayCast2D
 
@@ -15,8 +23,16 @@ var ray: RayCast2D
 func _ready() -> void:
 	ray = $RayCast2D
 	$Camera2D.make_current()
+	
+	score = 0
+	coins = 0
+	health = starting_health
+	max_health = starting_health
+	invincible = false
+	
 	coins_changed.emit(coins, self)
 	score_changed.emit(score, self)
+	health_changed.emit(health, max_health, self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,3 +67,33 @@ func get_score():
 func add_score(amount: int):
 	score += amount
 	score_changed.emit(score, self)
+
+func damage(amount: int):
+	damaged.emit(amount, self)
+	health_changed.emit(max(0, health - amount), max_health, self)
+	
+	if !invincible:
+		if health - amount <= 0:
+			health = 0
+			die()
+		else:
+			iframes()
+			health -= amount
+	
+func heal(amount: int):
+	health = min(max_health, health + amount)
+	healed.emit(amount, self)
+	health_changed.emit(health, max_health, self)
+
+func iframes():
+	invincible = true
+	$IFramesTimer.start()
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.5) # 50% transparent
+
+func _on_i_frames_timer_timeout() -> void:
+	invincible = false
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # opaque
+	
+func die():
+	death.emit(self)
+	queue_free()

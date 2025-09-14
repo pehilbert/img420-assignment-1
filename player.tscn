@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwyq2363s187u"]
+[gd_scene load_steps=6 format=3 uid="uid://cwyq2363s187u"]
 
 [ext_resource type="Texture2D" uid="uid://drvvr3032r4wm" path="res://icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://8caoupiyos48" path="res://player.gd" id="2_onrkg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4flbx"]
 friction = 0.0
@@ -21,6 +22,7 @@ animations = [{
 
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
+script = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.4, 1)
@@ -38,3 +40,8 @@ drag_vertical_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="IFramesTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="IFramesTimer" to="." method="_on_i_frames_timer_timeout"]
