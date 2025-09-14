@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwm5t8llhjurm"]
+
+[ext_resource type="Script" uid="uid://ckt2mpi5vyduk" path="res://level_hud.gd" id="1_ivury"]
+
+[node name="LevelHUD" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_ivury")
+
+[node name="CoinsText" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Coins: 0"
+
+[node name="ScoreText" type="Label" parent="."]
+offset_top = 57.0
+offset_right = 121.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"

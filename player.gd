@@ -2,13 +2,21 @@ extends RigidBody2D
 
 @export var speed = 500
 @export var jump_power = 800
+
+signal coins_changed(amount: int, player: Node2D)
+signal score_changed(amount: int, player: Node2D)
+
 var coins = 0
+var score = 0
 
 var ray: RayCast2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ray = $RayCast2D
+	$Camera2D.make_current()
+	coins_changed.emit(coins, self)
+	score_changed.emit(score, self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,4 +43,11 @@ func get_coins():
 	
 func add_coins(amount: int):
 	coins += amount
-	print(coins)
+	coins_changed.emit(coins, self)
+
+func get_score():
+	return score
+	
+func add_score(amount: int):
+	score += amount
+	score_changed.emit(score, self)

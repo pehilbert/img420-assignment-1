@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvsx6sd8ndabt"]
+
+[ext_resource type="PackedScene" uid="uid://cwyq2363s187u" path="res://player.tscn" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://dwm5t8llhjurm" path="res://level_hud.tscn" id="1_f2txt"]
+[ext_resource type="Script" uid="uid://8caoupiyos48" path="res://player.gd" id="2_f2txt"]
+[ext_resource type="PackedScene" uid="uid://cdg5hb61svami" path="res://platform.tscn" id="3_1ainy"]
+[ext_resource type="PackedScene" uid="uid://cq7hkm8cfervm" path="res://coin.tscn" id="4_n6hdu"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelHUD" parent="." instance=ExtResource("1_f2txt")]
+follow_viewport_enabled = false
+
+[node name="Player" parent="." instance=ExtResource("1_0b4ue")]
+position = Vector2(741, 325)
+script = ExtResource("2_f2txt")
+
+[node name="Platform" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(302, 554)
+scale = Vector2(2.8, 1)
+
+[node name="Coin" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(173, 462)
+
+[node name="Coin2" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(-197, 464)
+
+[node name="Coin3" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(488, 454)
+
+[connection signal="coins_changed" from="Player" to="LevelHUD" method="_on_player_coins_changed"]
+[connection signal="score_changed" from="Player" to="LevelHUD" method="_on_player_score_changed"]
