@@ -18,11 +18,6 @@ func spawn_player():
 	player_spawned.emit(player)
 	add_child(player)
 
-func _on_player_spawned(player: Node2D) -> void:
-	player.connect("death", Callable(self, "_on_player_death"))
-
-func _on_player_death(player: Node2D) -> void:
-	$RespawnTimer.start()
-	
-func _on_respawn_timer_timeout() -> void:
+func _on_level_hud_respawn_button_pressed() -> void:
 	spawn_player()
+	

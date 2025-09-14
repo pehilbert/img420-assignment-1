@@ -13,28 +13,24 @@ script = ExtResource("1_1ainy")
 follow_viewport_enabled = false
 
 [node name="Platform" parent="." instance=ExtResource("3_1ainy")]
-position = Vector2(302, 554)
+position = Vector2(572, 583)
 scale = Vector2(2.8, 1)
 
 [node name="Coin" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(173, 462)
+position = Vector2(398, 501)
 
 [node name="Coin2" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(-197, 464)
+position = Vector2(121, 505)
 
 [node name="Coin3" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(488, 454)
+position = Vector2(1048, 501)
 
 [node name="DamageObject" parent="." instance=ExtResource("5_f2txt")]
-position = Vector2(-4, 488)
+position = Vector2(710, 518)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(706, 465)
-
-[node name="RespawnTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
+position = Vector2(893, 483)
 
 [connection signal="player_spawned" from="." to="." method="_on_player_spawned"]
 [connection signal="player_spawned" from="." to="LevelHUD" method="_on_level_player_spawned"]
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="respawn_button_pressed" from="LevelHUD" to="." method="_on_level_hud_respawn_button_pressed"]
