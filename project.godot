@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Assignment 1"
-run/main_scene="uid://bvsx6sd8ndabt"
+run/main_scene="uid://b6ho0x8rvk4dx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var coins_text_format = "Coins: %d"
 @export var score_text_format = "Score: %d"
 @export var health_text_format = "Health: %d / %d"
+@export var main_menu_path = "res://main_menu.tscn"
 
 signal respawn_button_pressed
 
@@ -37,4 +38,5 @@ func _on_respawn_pressed() -> void:
 	$DeathScreen.visible = false
 
 func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file(main_menu_path)
 	$DeathScreen.visible = false
