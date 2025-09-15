@@ -68,10 +68,7 @@ func add_score(amount: int):
 	score += amount
 	score_changed.emit(score, self)
 
-func damage(amount: int):
-	damaged.emit(amount, self)
-	health_changed.emit(max(0, health - amount), max_health, self)
-	
+func damage(amount: int):	
 	if !invincible:
 		if health - amount <= 0:
 			health = 0
@@ -79,6 +76,9 @@ func damage(amount: int):
 		else:
 			iframes()
 			health -= amount
+			
+	damaged.emit(amount, self)
+	health_changed.emit(health, max_health, self)
 	
 func heal(amount: int):
 	health = min(max_health, health + amount)

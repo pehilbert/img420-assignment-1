@@ -20,4 +20,3 @@ func spawn_player():
 
 func _on_level_hud_respawn_button_pressed() -> void:
 	spawn_player()
-	
