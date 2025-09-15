@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://belubc12djows"]
+
+[ext_resource type="Script" uid="uid://cnygab80wm1t8" path="res://damage_object.gd" id="1_wbvg7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t0bl1"]
+normal = Vector2(0, 1)
+
+[node name="DamageObject" type="Area2D"]
+script = ExtResource("1_wbvg7")
+damage = 999999
+ignore_invincibility = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.40071e-06, 0.500001)
+scale = Vector2(24.822, -6.3522)
+shape = SubResource("WorldBoundaryShape2D_t0bl1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

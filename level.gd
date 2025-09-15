@@ -20,3 +20,6 @@ func spawn_player():
 
 func _on_level_hud_respawn_button_pressed() -> void:
 	spawn_player()
+
+func _on_level_hud_play_again_pressed() -> void:
+	get_tree().reload_current_scene()

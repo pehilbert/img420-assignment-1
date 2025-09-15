@@ -10,6 +10,7 @@ signal health_changed(health: int, max_health: int, player: Node2D)
 signal damaged(amount: int, player: Node2D)
 signal healed(amount: int, player: Node2D)
 signal death(player: Node2D)
+signal won_level(player: Node2D)
 
 var coins: int
 var score: int
@@ -68,8 +69,8 @@ func add_score(amount: int):
 	score += amount
 	score_changed.emit(score, self)
 
-func damage(amount: int):	
-	if !invincible:
+func damage(amount: int, ignore_invincible=false):	
+	if !invincible || ignore_invincible:
 		if health - amount <= 0:
 			health = 0
 			die()
@@ -77,13 +78,14 @@ func damage(amount: int):
 			iframes()
 			health -= amount
 			
-	damaged.emit(amount, self)
-	health_changed.emit(health, max_health, self)
+		damaged.emit(amount, self)
+		health_changed.emit(health, max_health, self)
 	
 func heal(amount: int):
 	health = min(max_health, health + amount)
 	healed.emit(amount, self)
 	health_changed.emit(health, max_health, self)
+	
 
 func iframes():
 	invincible = true
@@ -94,6 +96,10 @@ func _on_i_frames_timer_timeout() -> void:
 	invincible = false
 	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1) # opaque
 	
+func win_level():
+	won_level.emit(self)
+	queue_free()
+
 func die():
 	death.emit(self)
 	queue_free()

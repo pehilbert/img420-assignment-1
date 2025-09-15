@@ -19,6 +19,7 @@ radius = 251.794
 
 [node name="Coin" type="Area2D" groups=["Coins"]]
 script = ExtResource("1_0t63x")
+value = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
