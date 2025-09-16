@@ -7,7 +7,7 @@
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(19.375, 125)
+size = Vector2(16.0362, 91.5372)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -23,12 +23,16 @@ animations = [{
 [node name="Player" type="RigidBody2D" groups=["Player"]]
 physics_material_override = SubResource("PhysicsMaterial_4flbx")
 script = ExtResource("2_onrkg")
+jump_power = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(6.4, 1)
+position = Vector2(1.43051e-06, 0.882051)
+rotation = -3.14159
+scale = Vector2(5.61231, -0.985784)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

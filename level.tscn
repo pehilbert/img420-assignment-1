@@ -15,30 +15,125 @@ script = ExtResource("1_1ainy")
 follow_viewport_enabled = false
 
 [node name="Platform" parent="." instance=ExtResource("3_1ainy")]
-position = Vector2(572, 583)
-scale = Vector2(2.8, 1)
+position = Vector2(453, 632)
+scale = Vector2(2.8, 0.519998)
+
+[node name="Platform2" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(1757, 632)
+scale = Vector2(2.8, 0.519998)
+
+[node name="Platform3" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(1576, 508)
+scale = Vector2(0.67999, 0.519998)
+
+[node name="Platform5" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(2885, 589)
+scale = Vector2(2.27999, 0.519998)
+
+[node name="Platform7" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(2630, 864)
+scale = Vector2(0.67999, 0.519998)
+
+[node name="Platform8" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(2951, 818)
+scale = Vector2(0.67999, 0.519998)
+
+[node name="Platform6" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(2450, 942)
+scale = Vector2(1.75999, 0.519998)
+
+[node name="Platform4" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(1870, 408)
+scale = Vector2(0.67999, 0.519998)
 
 [node name="Coin" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(398, 501)
-
-[node name="Coin2" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(210, 502)
+position = Vector2(253, 564)
 
 [node name="Coin3" parent="." instance=ExtResource("4_n6hdu")]
-position = Vector2(1048, 501)
+position = Vector2(1303, 564)
+
+[node name="Coin4" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(1768, 564)
+
+[node name="Coin6" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(2162, 883)
+
+[node name="Coin7" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(2628, 791)
+
+[node name="Coin8" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(2959, 678)
+
+[node name="Platform9" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(3297, 773)
+scale = Vector2(0.67999, 0.519998)
+
+[node name="Platform10" parent="." instance=ExtResource("3_1ainy")]
+position = Vector2(3948, 699)
+scale = Vector2(2.19999, 0.519998)
+
+[node name="Coin9" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(3297, 700)
+
+[node name="Coin10" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(3619, 629)
+
+[node name="Coin11" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(3808, 629)
+
+[node name="Coin5" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(1871, 337)
+
+[node name="Coin2" parent="." instance=ExtResource("4_n6hdu")]
+position = Vector2(523, 564)
 
 [node name="DamageObject" parent="." instance=ExtResource("5_f2txt")]
-position = Vector2(710, 518)
+position = Vector2(781, 584)
+
+[node name="DamageObject2" parent="." instance=ExtResource("5_f2txt")]
+position = Vector2(1570, 584)
+
+[node name="DamageObject3" parent="." instance=ExtResource("5_f2txt")]
+position = Vector2(1956, 584)
+
+[node name="DamageObject4" parent="." instance=ExtResource("5_f2txt")]
+position = Vector2(2291, 895)
+
+[node name="DamageObject5" parent="." instance=ExtResource("5_f2txt")]
+position = Vector2(2964, 770)
 
 [node name="FallBarrier" parent="." instance=ExtResource("6_1ainy")]
-position = Vector2(52, 775)
+position = Vector2(72, 1078)
 scale = Vector2(-12539.6, 3.54763)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(893, 483)
+position = Vector2(-17, 568)
 
 [node name="Goal" parent="." instance=ExtResource("7_n6hdu")]
-position = Vector2(57, 473)
+position = Vector2(4298, 605)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 149.0
+offset_top = 452.0
+offset_right = 259.0
+offset_bottom = 475.0
+rotation = 0.697352
+text = "touch these ->"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 684.0
+offset_top = 471.0
+offset_right = 794.0
+offset_bottom = 494.0
+rotation = 0.697352
+text = "not these ->"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 1003.0
+offset_top = 484.0
+offset_right = 1208.0
+offset_bottom = 507.0
+text = "get to the end, good luck :)"
 
 [connection signal="player_spawned" from="." to="." method="_on_player_spawned"]
 [connection signal="player_spawned" from="." to="LevelHUD" method="_on_level_player_spawned"]

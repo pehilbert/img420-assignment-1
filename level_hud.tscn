@@ -6,16 +6,11 @@
 follow_viewport_enabled = true
 script = ExtResource("1_ivury")
 
-[node name="CoinsText" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 32
-text = "Coins: 0"
-
 [node name="ScoreText" type="Label" parent="."]
-offset_top = 57.0
-offset_right = 121.0
-offset_bottom = 102.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 53.0
 theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 
@@ -23,8 +18,10 @@ text = "Score: 0"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -169.0
-offset_bottom = 45.0
+offset_left = -191.0
+offset_top = 8.0
+offset_right = -22.0
+offset_bottom = 53.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 32
 text = "Health: 0/0"

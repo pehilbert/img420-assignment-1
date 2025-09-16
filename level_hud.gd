@@ -18,14 +18,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_level_player_spawned(player: Node2D) -> void:
-	player.connect("coins_changed", Callable(self, "_on_player_coins_changed"))
 	player.connect("score_changed", Callable(self, "_on_player_score_changed"))
 	player.connect("health_changed", Callable(self, "_on_player_health_changed"))
 	player.connect("death", Callable(self, "_on_player_death"))
 	player.connect("won_level", Callable(self, "_on_player_won_level"))
-
-func _on_player_coins_changed(amount: int, player: Node2D) -> void:
-	$CoinsText.text = coins_text_format % [amount]
 
 func _on_player_score_changed(amount: int, player: Node2D) -> void:
 	$ScoreText.text = score_text_format % [amount]

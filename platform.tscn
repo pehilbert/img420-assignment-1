@@ -8,6 +8,7 @@
 size = Vector2(4.17148, 0.898544)
 
 [node name="Platform" type="RigidBody2D"]
+scale = Vector2(1, 0.5)
 physics_material_override = SubResource("PhysicsMaterial_mi635")
 gravity_scale = 0.0
 freeze = true
